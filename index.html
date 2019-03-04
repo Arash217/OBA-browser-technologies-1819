@@ -2,10 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
-    <script src="src/js/libs/quagga.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="public/css/styles.css">
 </head>
 <body>
+<!-- Start of home page -->
+<section id="home-page" class="invisible">
+    <p>home</p>
+    <a href="#scan" class="scan-button">Scan</a>
+</section>
+<!-- End of home page -->
 
+<!-- Start of details page -->
+<section id="scan-page" class="invisible">
+    <div id="interactive" class="viewport"></div>
+    <a href="#details">Go to details</a>
+</section>
+<!-- End of details page -->
+
+<!-- Start of details page -->
+<section id="details-page" class="invisible">
+    <p>details</p>
+    <a href="#scan">Back</a>
+
+    <!-- Details page template will be rendered in this div -->
+    <div id="details-page-content"></div>
+</section>
+<!-- End of details page -->
+
+<script src="public/js/libs/handlebars.min.js"></script>
+<script src="public/js/libs/director.min.js"></script>
+<script src="public/js/libs/quagga.min.js"></script>
+<script type="module" src="public/js/app.js"></script>
 </body>
 </html>
