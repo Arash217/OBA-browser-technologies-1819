@@ -38,7 +38,9 @@ class Scan extends DOM {
                 target: document.querySelector('#interactive')    // Or '#yourElement' (optional)
             },
             decoder : {
-                readers : ["code_128_reader"]
+                readers : [
+                    "code_128_reader",
+                ]
             }
         }, err => {
             if (err) {
@@ -71,6 +73,11 @@ class Scan extends DOM {
                     Quagga.ImageDebug.drawPath(result.line, {x: 'x', y: 'y'}, drawingCtx, {color: 'red', lineWidth: 3});
                 }
             }
+        });
+
+        Quagga.onDetected(result => {
+            const code = result.codeResult.code;
+            alert(code);
         });
     }
 }
