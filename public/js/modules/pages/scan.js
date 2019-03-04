@@ -40,7 +40,7 @@ class Scan extends DOM {
             decoder : {
                 readers : ["code_128_reader"]
             }
-        }, function(err) {
+        }, err => {
             if (err) {
                 console.log(err);
                 return
