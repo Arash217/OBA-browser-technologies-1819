@@ -77,7 +77,9 @@ class Scan extends DOM {
 
         Quagga.onDetected(result => {
             const code = result.codeResult.code;
-            alert(code);
+            console.log('detected');
+            console.log(code);
+            alert(code)
         });
     }
 }
