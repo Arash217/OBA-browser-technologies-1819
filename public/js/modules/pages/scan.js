@@ -35,11 +35,19 @@ class Scan extends DOM {
             inputStream : {
                 name : "Live",
                 type : "LiveStream",
-                target: document.querySelector('#interactive')    // Or '#yourElement' (optional)
+                target: document.querySelector('#interactive')
             },
             decoder : {
                 readers : [
                     "code_128_reader",
+                    "ean_reader",
+                    "ean_8_reader",
+                    "code_39_reader",
+                    "code_39_vin_reader",
+                    "codabar_reader",
+                    "upc_reader",
+                    "upc_e_reader",
+                    "i2of5_reader"
                 ]
             }
         }, err => {
@@ -75,13 +83,18 @@ class Scan extends DOM {
             }
         });
 
+        let lastResult = null;
+
         Quagga.onDetected(result => {
             const code = result.codeResult.code;
-            console.log('detected');
-            console.log(result);
-            alert(code)
+
+            if (lastResult !== code){
+                lastResult = code;
+                alert(code)
+            }
         });
     }
 }
+
 
 export default new Scan();

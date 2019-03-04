@@ -51,17 +51,46 @@ section {
     color: var(--secondary);
 }
 
+/* Scan page */
 #scan-page {
     background-color: #f7a51d;
 }
 
-#interactive {
-    width: 100%;
-    height: 100%;
+#interactive.viewport {
+    width: 640px;
+    height: 480px;
 }
 
 
+#interactive.viewport canvas, video {
+    float: left;
+    width: 640px;
+    height: 480px;
+}
 
+#interactive.viewport canvas.drawingBuffer, video.drawingBuffer {
+    margin-left: -640px;
+}
+
+#interactive.viewport {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+}
+
+
+#interactive.viewport canvas, video {
+    margin-top: -50px;
+    width: 300px;
+    height: 400px;
+}
+
+#interactive.viewport canvas.drawingBuffer, video.drawingBuffer {
+    margin-left: -300px;
+}
+
+
+/* Details page */
 #details-page {
     background-color: white;
 }
