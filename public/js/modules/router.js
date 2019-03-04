@@ -1,3 +1,5 @@
+import DOM from './pages/DOM.js';
+
 let currentPage = null;
 
 const createDirectorRoutes = routes => {
@@ -20,5 +22,6 @@ const createDirectorRoutes = routes => {
 export const init = routes => {
     const directorRoutes = createDirectorRoutes(routes.routes);
     currentPage = routes.routes[0].page;
-    Router(directorRoutes).init(routes.routes[0].path);
+    const router = Router(directorRoutes).init(routes.routes[0].path);
+    DOM.prototype.$router = router;
 };

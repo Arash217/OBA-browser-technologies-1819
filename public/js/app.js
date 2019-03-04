@@ -14,7 +14,7 @@ router.init({
                 page: scan
             },
             {
-                path: 'details',
+                path: 'details/:code',
                 page: details
             }
         ]

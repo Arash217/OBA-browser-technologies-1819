@@ -14,15 +14,8 @@ class Home extends DOM {
         return undefined;
     }
 
-    async shown() {
+    shown() {
         this.display();
-        console.log('home shown');
-        try {
-            // this.data.countries = await apiProxy.getAll();
-        } catch (e) {
-            console.log(e);
-        } finally {
-        }
     }
 
     hid(){

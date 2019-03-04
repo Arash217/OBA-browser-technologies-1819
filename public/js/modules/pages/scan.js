@@ -15,15 +15,10 @@ class Scan extends DOM {
         return undefined;
     }
 
-    async shown() {
+    shown() {
         this.display();
         this.initScanner();
-        console.log('scan shown');
-        try {
-            // this.data.countries = await apiProxy.getAll();
-        } catch (e) {
-            console.log(e);
-        }
+        console.log(this.$router)
     }
 
     hid(){
@@ -90,7 +85,7 @@ class Scan extends DOM {
 
             if (lastResult !== code){
                 lastResult = code;
-                alert(code)
+                this.$router.setRoute(`details/${code}`);
             }
         });
     }
