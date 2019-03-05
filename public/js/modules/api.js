@@ -1,13 +1,12 @@
 import * as utils from './utils.js';
+import config from './config.js';
 
-const username = 'fb2f0c2f-4b5c-4d5c-a020-543fc328d30e';
-const password = '8WN8WLYP';
 
 export const get = async () => {
     const url = 'http://localhost:3000/singleSearch/singleSearch.xml?q=madonna&resultCount=10';
 
     const headers = new Headers({
-        Authorization: `Basic ${btoa(username + ':' + password)}`
+        Authorization: `Basic ${btoa(config.username + ':' + config.password)}`
     });
 
     const res = await fetch(url, {headers});
