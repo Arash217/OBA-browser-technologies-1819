@@ -1,7 +1,6 @@
 import * as utils from './utils.js';
 import config from './config.js';
 
-
 export const get = async () => {
     const url = 'http://localhost:3000/singleSearch/singleSearch.xml?q=madonna&resultCount=10';
 
