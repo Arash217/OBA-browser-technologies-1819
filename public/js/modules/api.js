@@ -10,7 +10,6 @@ export const get = async () => {
 
     const res = await fetch(url, {headers});
     const xml = await res.text();
-    const json = utils.xmlToJson(xml);
 
-    console.log(json);
+    return utils.xmlToJson(xml);
 };
