@@ -9,6 +9,23 @@ class Scan extends DOM {
 
         DOM.registerPage(this.id);
 
+        this.eventListeners = [
+            element => {
+                let torch = false;
+                const clickEventHandler = ({target}) => {
+                    if (target.id === 'flashlight') {
+                        const track = Quagga.CameraAccess.getActiveTrack();
+                        if (track && typeof track.getCapabilities === 'function') {
+                            torch = !torch;
+                            track.applyConstraints({advanced: [{torch}]});
+                            target.classList.toggle('flashlight-on');
+                        }
+                    }
+                };
+
+                element.addEventListener('click', clickEventHandler);
+            },
+        ]
     }
 
     template() {
@@ -17,8 +34,8 @@ class Scan extends DOM {
 
     shown() {
         this.display();
+        this.initEventListeners();
         this.initScanner();
-        console.log(this.$router)
     }
 
     hid(){

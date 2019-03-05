@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1">
     <title>Title</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="public/css/styles.css">
@@ -10,13 +10,41 @@
 <body>
 <!-- Start of home page -->
 <section id="home-page" class="invisible">
-    <a href="#scan" class="scan-button">Scan</a>
+
+    <div class="scan-button-container">
+        <a href="#scan" class="scan-button"></a>
+        <span class="ripple"></span>
+    </div>
+
+    <div class="waves-container">
+        <svg class="wave">
+            <path d="M.005 121C311 121 409.898-.25 811 0c400 0 500 121 789 121v77H0s.005-48 .005-77z"/>
+        </svg>
+
+        <svg class="wave">
+            <path d="M.005 121C311 121 409.898-.25 811 0c400 0 500 121 789 121v77H0s.005-48 .005-77z"/>
+        </svg>
+    </div>
+
+    <div class="waves-container type-2">
+        <svg class="wave">
+            <path d="M.005 121C311 121 409.898-.25 811 0c400 0 500 121 789 121v77H0s.005-48 .005-77z"/>
+        </svg>
+
+        <svg class="wave">
+            <path d="M.005 121C311 121 409.898-.25 811 0c400 0 500 121 789 121v77H0s.005-48 .005-77z"/>
+        </svg>
+    </div>
 </section>
 <!-- End of home page -->
 
 <!-- Start of details page -->
 <section id="scan-page" class="invisible">
     <div id="interactive" class="viewport"></div>
+
+    <div class="actions">
+        <div id="flashlight" class="flashlight-off"></div>
+    </div>
 </section>
 <!-- End of details page -->
 
