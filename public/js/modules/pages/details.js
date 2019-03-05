@@ -20,7 +20,12 @@ class Details extends DOM {
         try {
             this.display();
             const res = await api.get();
+
             console.log(res);
+            const { AlbumTitle } = res.Result.Popular.Albums.Album;
+
+            console.log(AlbumTitle);
+            alert(AlbumTitle)
         } catch (e) {
             alert(e.message);
         }

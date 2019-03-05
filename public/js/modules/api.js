@@ -2,7 +2,7 @@ import * as utils from './utils.js';
 import config from './config.js';
 
 export const get = async () => {
-    const url = 'http://134.209.89.240:3000/singleSearch/singleSearch.xml?q=madonna&resultCount=10';
+    const url = 'http://134.209.89.240:3000/singleSearch/singleSearch.xml?q=9789080940543&resultCount=1';
 
     const headers = new Headers({
         Authorization: `Basic ${btoa(config.username + ':' + config.password)}`
