@@ -1,21 +1,18 @@
-// const username = '9a3b72cc-6f4b-4023-b9fe-d414d684b45b';
-// const password = 'M39PJCP';
+import * as utils from './utils.js';
+
+const username = 'fb2f0c2f-4b5c-4d5c-a020-543fc328d30e';
+const password = '8WN8WLYP';
 
 export const get = async () => {
+    const url = 'http://localhost:3000/singleSearch/singleSearch.xml?q=madonna&resultCount=10';
 
-    const url = 'https://api.cdr.nl/singleSearch/singleSearch.xml?q=madonna&resultCount=10';
-
-    let headers = new Headers({
-        'Authorization': 'Basic OWEzYjcyY2MtNmY0Yi00MDIzLWI5ZmUtZDQxNGQ2ODRiNDViOk0zOVBKQ1A='
+    const headers = new Headers({
+        Authorization: `Basic ${btoa(username + ':' + password)}`
     });
 
-    const res = await fetch(url, {
-        method: 'GET',
-        'Cache-Control': 'no-cache',
-        mode: 'no-cors',
-        credentials: "include",
-        headers
-    });
+    const res = await fetch(url, {headers});
+    const xml = await res.text();
+    const json = utils.xmlToJson(xml);
 
-    console.log(res);
+    console.log(json);
 };
