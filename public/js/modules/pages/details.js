@@ -1,4 +1,5 @@
 import DOM from './DOM.js';
+import * as api from '../api.js';
 import {xmlToJson} from "../utils.js";
 
 class Details extends DOM {
@@ -15,9 +16,10 @@ class Details extends DOM {
         return undefined;
     }
 
-    shown(code) {
+    async shown(code) {
         this.display();
-
+        console.log('details')
+        await api.get();
         console.log('na convert')
     }
 
