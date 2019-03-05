@@ -17,9 +17,13 @@ class Details extends DOM {
     }
 
     async shown(code) {
-        this.display();
-        const res = await api.get();
-        console.log(res);
+        try {
+            this.display();
+            const res = await api.get();
+            console.log(res);
+        } catch (e) {
+            alert(e.message);
+        }
     }
 
     hid() {
