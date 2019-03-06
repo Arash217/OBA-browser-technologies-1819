@@ -19,11 +19,13 @@ export const getTracksByAlbumISBN = async ISBN => {
 
     const {Album} = jsonData.Result.Popular.Albums;
 
+    console.log(Album);
+
     return await getTracks(Album);
 };
 
 const getTracks = async album => {
-    const url = `http://134.209.89.240:3000/album/${album.AlbumTitle}`;
+    const url = `http://134.209.89.240:3000/album/${album.AlbumTitle}/artist/${album.Performers.Performer.PresentationName}`;
 
     const res = await fetch(url);
 
@@ -34,12 +36,14 @@ const getTracks = async album => {
 
     const data = await res.json();
 
+    console.log(data);
+
     const albumAndTracks = {
         tracks: data.items,
-        album: album[0]
+        album: album
     };
 
-    const { Cover } =  albumAndTracks.album;
+    const { Cover } = albumAndTracks.album;
     albumAndTracks.album.Cover = Cover.replace('PICO', 'SUPERLARGE');
 
     return albumAndTracks;
