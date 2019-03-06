@@ -39,9 +39,11 @@ class Details extends DOM {
             <div id="tracks">
                 {{#each this.tracks}}
                     <div id="{{this.id}}" class="track">
-                         <audio class="audio" src="{{this.preview_url}}"></audio>
                          <div class="album">
-                            <img class="album-image" src="{{../this.album.Cover}}" alt="{{../this.album.AlbumTitle}}">
+                            <div class="image-container">
+                                <audio class="audio" src="{{this.preview_url}}"></audio>
+                                <img class="album-image" src="{{../this.album.Cover}}" alt="{{../this.album.AlbumTitle}}">
+                            </div>
                             <span>{{this.name}}</span>
                         </div>
                     </div>

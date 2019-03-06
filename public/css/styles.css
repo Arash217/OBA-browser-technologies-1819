@@ -222,6 +222,7 @@ section {
     align-items: center;
     justify-items: center;
     grid-template-columns: 1fr;
+    padding-top: 1em;
 }
 
 .album-title {
@@ -244,16 +245,35 @@ section {
     pointer-events: none;
 }
 
+.image-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .album span {
-    width: 90%;
     background-color: rgb(var(--blue-end));
-    padding: 0.1em;
+    padding: 0.5em;
     pointer-events: none;
+    text-align: center;
+    width: 90%;
+    font-size: 1.5em;
 }
 
 .album-image {
-    max-width: 90%;
     pointer-events: none;
+    max-width: 90%;
+}
+
+.image-container:after {
+    content: '';
+    width: 90%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 5%;
+    position: absolute;
 }
 
 .audio {
