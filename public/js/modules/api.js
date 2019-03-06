@@ -23,7 +23,7 @@ export const getTracksByAlbumISBN = async ISBN => {
 };
 
 const getTracks = async album => {
-    const url = `http://localhost:3000/album/${album.AlbumTitle}`;
+    const url = `http://134.209.89.240:3000/album/${album.AlbumTitle}`;
 
     const res = await fetch(url);
 
