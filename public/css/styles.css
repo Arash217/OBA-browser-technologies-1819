@@ -215,5 +215,73 @@ section {
 
 /* Details page */
 #details-page {
-    background-color: white;
+    display: flex;
+    /*background-image: linear-gradient(to bottom, rgb(var(--blue-start)), rgb(var(--blue-end)));*/
+    flex-direction: column;
+    height: auto;
+}
+
+.nav-bar {
+    display: flex;
+    height: 50px;
+    width: 100%;
+    background-color: rgb(var(--blue-end));
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+.nav-bar a {
+    color: rgb(var(--white));
+}
+
+#details-page-content {
+    padding: 1em;
+}
+
+#tracks {
+    display: grid;
+    grid-gap: 1em;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+}
+
+.album-title {
+    font-size: 2em;
+    color: rgb(var(--blue-end));
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    padding-bottom: 1em;
+}
+
+.track {
+    text-align: center;
+}
+
+.album {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    pointer-events: none;
+}
+
+.album span {
+    width: 100px;
+    background-color: rgb(var(--blue-end));
+    padding: 3px;
+    pointer-events: none;
+}
+
+.album-image {
+    width: 100px;
+    height: 100px;
+    pointer-events: none;
+}
+
+.audio {
+    display: none;
 }
