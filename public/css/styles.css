@@ -19,7 +19,7 @@ a {
 }
 
 .invisible {
-    display: none!important;
+    display: none !important;
 }
 
 html, body, section {
@@ -111,12 +111,12 @@ section {
     position: absolute;
     width: 1600px;
     height: 200px;
-    animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+    animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
     transform: translate3d(0, 0, 0) translateX(-50%);
 }
 
 .wave:nth-of-type(2) {
-    animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+    animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
     transform: translate3d(0, 0, 0) translateX(50%);
 }
 
@@ -149,7 +149,7 @@ section {
 
 /* Scan page */
 #scan-page {
-    background-image: linear-gradient(to bottom, rgb(var(--blue-start)), rgb(var(--blue-end)));
+    background-color: black;
 }
 
 #interactive {
@@ -168,23 +168,24 @@ section {
 }
 
 #flashlight {
-    background-image: url("../img/flashlight.svg");
     width: 4em;
     height: 4em;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 3em 3em;
     border-radius: 50%;
+    border: 1px solid rgb(var(--white));
+    padding: 5px;
 }
 
 .flashlight-off {
-    background-color: rgb(var(--light-blue));
-
+    fill: white;
 }
 
 .flashlight-on {
-    background-color: rgb(var(--blue-end));
-    filter: invert(100%);
+    fill: rgb(var(--blue-start));
+    border: 1px solid rgb(var(--blue-start))!important;
+}
+
+#flashlight path {
+    pointer-events: none;
 }
 
 /* Details page */
