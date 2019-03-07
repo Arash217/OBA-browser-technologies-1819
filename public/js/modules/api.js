@@ -17,6 +17,8 @@ export const getTracksByAlbumISBN = async ISBN => {
     const xml = await res.text();
     const jsonData = utils.xmlToJson(xml);
 
+    console.log(jsonData);
+
     let data = jsonData.Result.Popular.Albums.Album;
 
     if (!data){
@@ -27,9 +29,15 @@ export const getTracksByAlbumISBN = async ISBN => {
 };
 
 const getTracks = async album => {
-    const url = `http://134.209.89.240:3000/album/${album.AlbumTitle}/artist/${album.Performers.Performer.PresentationName}`;
+    const url = `http://134.209.89.240:3000/tracks`;
 
-    const res = await fetch(url);
+    const res = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify({
+            albumTitle: album.AlbumTitle,
+            artist: album.Performers.Performer.PresentationName
+        })
+    });
 
     if (!res.ok) {
         throw Error('Something went wrong')
