@@ -29,13 +29,22 @@ export const getTracksByAlbumISBN = async ISBN => {
 };
 
 const getTracks = async album => {
+
+    const albumTitle = album.AlbumTitle;
+    let artist = '';
+
+    if (album.Performers !== ''){
+        artist = album.Performers.Performer.PresentationName;
+    }
+
     const url = `http://134.209.89.240:3000/tracks`;
 
     const res = await fetch(url, {
         method: 'POST',
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
-            albumTitle: album.AlbumTitle,
-            artist: album.Performers.Performer.PresentationName
+            albumTitle,
+            artist
         })
     });
 
