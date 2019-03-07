@@ -35,7 +35,7 @@ const getSpotifyToken = async () => {
     const formData = new URLSearchParams();
     formData.append('grant_type', 'client_credentials');
 
-    const res = await fetch('http://127.0.0.1:3001/accounts/api/token', {
+    const res = await fetch('http://134.209.89.240:3001/accounts/api/token', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -76,7 +76,7 @@ const getTracks = async album => {
 };
 
 const getSpotifyAlbum = async (albumTitle, artist) => {
-    const res = await fetch(`http://127.0.0.1:3001/api/v1/search?q=${encodeURIComponent(albumTitle)}+artist:${encodeURIComponent(artist)}&type=album&limit=1`, {
+    const res = await fetch(`http://134.209.89.240:3001/api/v1/search?q=${encodeURIComponent(albumTitle)}+artist:${encodeURIComponent(artist)}&type=album&limit=1`, {
         headers: {
             'Authorization': 'Bearer ' + token
         },
@@ -99,7 +99,7 @@ const getSpotifyAlbum = async (albumTitle, artist) => {
 };
 
 const getSpotifyTracks = async albumId => {
-    const res = await fetch(`http://127.0.0.1:3001/api/v1/albums/${albumId}/tracks`, {
+    const res = await fetch(`http://134.209.89.240:3001/api/v1/albums/${albumId}/tracks`, {
         headers: {
             'Authorization': 'Bearer ' + token
         },
