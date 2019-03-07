@@ -23,9 +23,6 @@ export const getTracksByAlbumISBN = async ISBN => {
         data = jsonData.Result.Popular.OrderData.Album;
     }
 
-    console.log(jsonData);
-    alert(jsonData);
-
     return await getTracks(data);
 };
 
@@ -35,13 +32,10 @@ const getTracks = async album => {
     const res = await fetch(url);
 
     if (!res.ok) {
-        console.log(res);
         throw Error('Something went wrong')
     }
 
     const data = await res.json();
-
-    console.log(data);
 
     const albumAndTracks = {
         tracks: data.items,
