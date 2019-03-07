@@ -303,3 +303,11 @@ section {
 .stop-button {
     background-image: url("../img/stop.svg");
 }
+
+.error {
+    font-size: 2em;
+    color: rgb(var(--blue-end));
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+}

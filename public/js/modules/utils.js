@@ -29,3 +29,10 @@ const domToJson = srcDOM => {
 
     return jsonResult;
 };
+
+export const request = async (url, init) => {
+    const res = await fetch(url, init);
+    const data = await res.json();
+    if (!res.ok) throw data;
+    return data;
+};

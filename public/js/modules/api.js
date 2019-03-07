@@ -1,4 +1,4 @@
-import * as utils from './utils.js';
+import {xmlToJson, request} from "./utils.js";
 import config from './config.js';
 
 let token = null;
@@ -12,12 +12,8 @@ export const getTracksByAlbumISBN = async ISBN => {
 
     const res = await fetch(url, {headers});
 
-    if (!res.ok) {
-        throw Error('Something went wrong')
-    }
-
     const xml = await res.text();
-    const jsonData = utils.xmlToJson(xml);
+    const jsonData = xmlToJson(xml);
 
     let data = jsonData.Result.Popular.Albums.Album;
 
@@ -29,23 +25,19 @@ export const getTracksByAlbumISBN = async ISBN => {
 };
 
 const getSpotifyToken = async () => {
-    const client_id = '71275f4b1eb54fdc969578e0af48fbe3';
-    const client_secret = '08645c05ab8b46f5af323c8f7bda2b98';
-
     const formData = new URLSearchParams();
     formData.append('grant_type', 'client_credentials');
 
-    const res = await fetch('http://134.209.89.240:3001/accounts/api/token', {
+    const data = await request('http://134.209.89.240:3001/accounts/api/token', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': 'Basic ' + btoa(client_id + ':' + client_secret)
+            Authorization: 'Basic ' + btoa(config.spotifyID + ':' + config.spotifySecret)
         },
         body: formData.toString(),
         json: true
     });
 
-    const data = await res.json();
     token = data.access_token;
 };
 
@@ -61,7 +53,6 @@ const getTracks = async album => {
     }
 
     const spotifyAlbum = await getSpotifyAlbum(albumTitle, artist);
-    console.log(spotifyAlbum);
     const tracks = await getSpotifyTracks(spotifyAlbum.id);
 
     const albumAndTracks = {
@@ -76,18 +67,14 @@ const getTracks = async album => {
 };
 
 const getSpotifyAlbum = async (albumTitle, artist) => {
-    const res = await fetch(`http://134.209.89.240:3001/api/v1/search?q=${encodeURIComponent(albumTitle)}+artist:${encodeURIComponent(artist)}&type=album&limit=1`, {
+    const data = await request(`http://134.209.89.240:3001/api/v1/search?q=${encodeURIComponent(albumTitle)}+artist:${encodeURIComponent(artist)}&type=album&limit=1`, {
         headers: {
-            'Authorization': 'Bearer ' + token
+            Authorization: 'Bearer ' + token
         },
         json: true
     });
 
-    const data = await res.json();
-
     let spotifyAlbum = data.albums.items[0];
-
-    console.log(data);
 
     // if (data.albums.length > 0){
     //     spotifyAlbum = data.albums.items[0];
@@ -99,12 +86,16 @@ const getSpotifyAlbum = async (albumTitle, artist) => {
 };
 
 const getSpotifyTracks = async albumId => {
-    const res = await fetch(`http://134.209.89.240:3001/api/v1/albums/${albumId}/tracks`, {
+    const data = await request(`http://134.209.89.240:3001/api/v1/albums/${albumId}/tracks`, {
         headers: {
-            'Authorization': 'Bearer ' + token
+            Authorization: 'Bearer ' + token
         },
         json: true
     });
 
-    return res.json();
+    if (!data.items[0].preview_url){
+        throw Error();
+    }
+
+    return data;
 };

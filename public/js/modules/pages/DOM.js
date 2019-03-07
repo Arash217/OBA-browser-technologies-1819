@@ -20,40 +20,6 @@ class DOM {
         DOM.displayPage(this.id);
     }
 
-    static handleError(error) {
-        let errorMessage = '';
-
-        switch (error.status) {
-            case 400:
-            case 404:
-                errorMessage = 'Requested country not found';
-                break;
-            default:
-                errorMessage = 'Something went wrong, please try again later'
-        }
-
-        DOM.displayAndRenderTemplate(
-            {errorMessage},
-            '#error-page',
-            '#error-template',
-            '#error-page-content'
-        )
-    }
-
-    static handlePageRequest(fn) {
-        return async (...args) => {
-            const element = DOM.getElement('#loader');
-            try {
-                element.classList.add('spinner');
-                await fn(...args);
-            } catch (e) {
-                this.handleError(e);
-            } finally {
-                element.classList.remove('spinner');
-            }
-        }
-    }
-
     initEventListeners() {
         if (!this.initialisedListeners && this.eventListeners && this.eventListeners.length > 0) {
             const pageElement = DOM.getElement(this.id);
@@ -69,7 +35,6 @@ class DOM {
     }
 
     static getElement(selector){
-        console.log(selector)
         return document.querySelector(selector);
     }
 

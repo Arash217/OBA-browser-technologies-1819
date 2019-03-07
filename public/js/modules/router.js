@@ -6,13 +6,13 @@ const createDirectorRoutes = routes => {
     const directorRoutes = {};
     routes.forEach(route => {
 
-        const setPage = () => {
+        const hidePage = () => {
             currentPage.hid();
             currentPage = route.page;
         };
 
         directorRoutes[route.path] = [
-            setPage,
+            hidePage,
             route.page.shown.bind(route.page)
         ];
     });
@@ -22,6 +22,5 @@ const createDirectorRoutes = routes => {
 export const init = routes => {
     const directorRoutes = createDirectorRoutes(routes.routes);
     currentPage = routes.routes[0].page;
-    const router = Router(directorRoutes).init(routes.routes[0].path);
-    DOM.prototype.$router = router;
+    DOM.prototype.$router = Router(directorRoutes).init(routes.routes[0].path);
 };

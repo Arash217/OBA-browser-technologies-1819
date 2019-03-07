@@ -1,6 +1,5 @@
 import DOM from './DOM.js';
 import * as api from '../api.js';
-import {xmlToJson} from "../utils.js";
 
 class Details extends DOM {
     constructor() {
@@ -28,7 +27,6 @@ class Details extends DOM {
                             playerButton.classList.remove('play-button');
                             playerButton.classList.add('stop-button');
                         }
-
                     }
                 };
 
@@ -39,6 +37,11 @@ class Details extends DOM {
 
     template() {
         return `
+            {{#if this.errorMessage}}
+                <span class="error">
+                    {{ this.errorMessage }}
+                </span>
+            {{else}}
             <span class="album-title">
                 {{ this.album.AlbumTitle }}
             </span>
@@ -58,17 +61,16 @@ class Details extends DOM {
                     </div>
                 {{/each}}
             </div>
+            {{/if}}
         `;
     }
 
     async shown(code) {
         this.initEventListeners();
+        this.display();
+
         try {
-            this.display();
-
             const res = await api.getTracksByAlbumISBN(code);
-
-            console.log(res);
 
             this.data = {
                 albumAndTrack: res
@@ -76,13 +78,13 @@ class Details extends DOM {
 
             this.renderContent(res);
         } catch (e) {
-            console.log(e.message);
+            this.renderContent({
+                errorMessage: 'Album niet gevonden...'
+            })
         }
     }
 
-    hid() {
-
-    }
+    hid() {}
 }
 
 export default new Details();

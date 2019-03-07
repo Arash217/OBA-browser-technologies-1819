@@ -18,9 +18,7 @@ class Home extends DOM {
         this.display();
     }
 
-    hid(){
-
-    }
+    hid(){}
 }
 
 export default new Home();
