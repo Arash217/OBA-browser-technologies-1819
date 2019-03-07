@@ -3,9 +3,9 @@
     padding: 0;
     box-sizing: border-box;
     --white: 255, 255, 255;
-    --blue-start: 1, 183, 255;
-    --blue-end: 6, 108, 255;
-    --light-blue: 91, 193, 255;
+    --blue-start: 59, 155, 155;
+    --blue-end: 0, 153, 153;
+    --light-blue: 80, 206, 206;
 }
 
 body {
@@ -262,12 +262,15 @@ section {
     text-align: center;
     width: 90%;
     font-size: 1.5em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 1;
 }
 
 .album-image {
     pointer-events: none;
     width: 100%;
     float: left;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .audio {
