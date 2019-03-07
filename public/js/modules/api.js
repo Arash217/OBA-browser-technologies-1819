@@ -24,6 +24,7 @@ export const getTracksByAlbumISBN = async ISBN => {
     }
 
     console.log(jsonData);
+    alert(jsonData);
 
     return await getTracks(data);
 };
