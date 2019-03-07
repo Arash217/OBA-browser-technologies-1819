@@ -68,6 +68,8 @@ class Details extends DOM {
 
             const res = await api.getTracksByAlbumISBN(code);
 
+            console.log(res);
+
             this.data = {
                 albumAndTrack: res
             };

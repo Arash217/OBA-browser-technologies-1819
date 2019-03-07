@@ -37,16 +37,8 @@ const getTracks = async album => {
         artist = album.Performers.Performer.PresentationName;
     }
 
-    const url = `http://134.209.89.240:3000/tracks`;
-
-    const res = await fetch(url, {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-            albumTitle,
-            artist
-        })
-    });
+    const url = `http://134.209.89.240:3000/album/${encodeURIComponent(albumTitle)}/artist/${encodeURIComponent(artist)}`;
+    const res = await fetch(url);
 
     if (!res.ok) {
         throw Error('Something went wrong')
