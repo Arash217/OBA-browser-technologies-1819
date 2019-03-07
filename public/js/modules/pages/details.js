@@ -16,13 +16,19 @@ class Details extends DOM {
                 const clickEventHandler = ({target}) => {
                     if (target.classList.contains('track')) {
                         const audio = target.querySelector('audio');
+                        const playerButton = target.querySelector('#player-button');
 
                         if (audio.duration > 0 && !audio.paused) {
                             audio.pause();
                             audio.currentTime = 0;
+                            playerButton.classList.remove('stop-button');
+                            playerButton.classList.add('play-button');
                         } else {
                             audio.play();
+                            playerButton.classList.remove('play-button');
+                            playerButton.classList.add('stop-button');
                         }
+
                     }
                 };
 
@@ -40,9 +46,12 @@ class Details extends DOM {
                 {{#each this.tracks}}
                     <div id="{{this.id}}" class="track">
                          <div class="album">
-                            <div class="image-container">
+                            <div class="player-container">
                                 <audio class="audio" src="{{this.preview_url}}"></audio>
                                 <img class="album-image" src="{{../this.album.Cover}}" alt="{{../this.album.AlbumTitle}}">
+                                <div id="player">
+                                    <div id="player-button" class="play-button"></div>
+                                </div>
                             </div>
                             <span>{{this.name}}</span>
                         </div>

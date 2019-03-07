@@ -10,18 +10,22 @@ export const getTracksByAlbumISBN = async ISBN => {
 
     const res = await fetch(url, {headers});
 
-    if (!res.ok){
+    if (!res.ok) {
         throw Error('Something went wrong')
     }
 
     const xml = await res.text();
     const jsonData = utils.xmlToJson(xml);
 
-    const {Album} = jsonData.Result.Popular.Albums;
+    let data = jsonData.Result.Popular.Albums.Album;
 
-    console.log(Album);
+    if (!data){
+        data = jsonData.Result.Popular.OrderData.Album;
+    }
 
-    return await getTracks(Album);
+    console.log(jsonData);
+
+    return await getTracks(data);
 };
 
 const getTracks = async album => {
@@ -29,7 +33,7 @@ const getTracks = async album => {
 
     const res = await fetch(url);
 
-    if (!res.ok){
+    if (!res.ok) {
         console.log(res);
         throw Error('Something went wrong')
     }
@@ -43,7 +47,7 @@ const getTracks = async album => {
         album: album
     };
 
-    const { Cover } = albumAndTracks.album;
+    const {Cover} = albumAndTracks.album;
     albumAndTracks.album.Cover = Cover.replace('PICO', 'SUPERLARGE');
 
     return albumAndTracks;

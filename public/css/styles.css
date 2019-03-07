@@ -195,6 +195,7 @@ section {
     /*background-image: linear-gradient(to bottom, rgb(var(--blue-start)), rgb(var(--blue-end)));*/
     flex-direction: column;
     height: auto;
+    padding-bottom: 1em;
 }
 
 .nav-bar {
@@ -245,11 +246,13 @@ section {
     pointer-events: none;
 }
 
-.image-container {
-    position: relative;
+.player-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 90%;
+    height: auto;
+    position: relative;
 }
 
 .album span {
@@ -263,19 +266,40 @@ section {
 
 .album-image {
     pointer-events: none;
-    max-width: 90%;
-}
-
-.image-container:after {
-    content: '';
-    width: 90%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    top: 0;
-    left: 5%;
-    position: absolute;
+    width: 100%;
+    float: left;
 }
 
 .audio {
     display: none;
+}
+
+#player {
+    float: left;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#player-button {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70% 70%;
+    border-radius: 50%;
+    border: 1px solid rgb(var(--white));
+    width: 5em;
+    height: 5em;
+}
+
+.play-button {
+    background-image: url("../img/play.svg");
+}
+
+.stop-button {
+    background-image: url("../img/stop.svg");
 }
