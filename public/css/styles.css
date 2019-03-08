@@ -182,7 +182,7 @@ section {
 
 .flashlight-on {
     fill: rgb(var(--blue-start));
-    border: 1px solid rgb(var(--blue-start))!important;
+    border: 1px solid rgb(var(--blue-start)) !important;
 }
 
 #flashlight path {
@@ -313,4 +313,51 @@ section {
     text-align: center;
     width: 100%;
     display: inline-block;
+}
+
+.skeleton-title {
+    width: 90%;
+    max-width: 720px;
+    height: 43px;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(rgb(var(--blue-end)) 57px, white 0);
+    background-size: 25% 43px;
+    background-position: 50% 50%;
+    animation: grow 5s ease-out infinite normal;
+}
+
+.skeleton {
+    width: 90%;
+    max-width: 720px;
+    height: 400px;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(rgb(var(--blue-end)) 57px, white 0),
+    linear-gradient(#E2E2E2 100%, transparent 0);
+
+    background-size: 100% 57px,
+    100% 100%;
+
+    background-position: 0 100%,
+    0 0;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    animation: grow 5s ease-out infinite normal;
+}
+
+@keyframes grow {
+    0% {
+        transform: scale(0.96);
+    }
+    25% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.96);
+    }
+    75% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.96);
+    }
 }
