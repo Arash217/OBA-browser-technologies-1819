@@ -52,11 +52,9 @@ section {
     font-size: 2em;
     background-color: rgb(var(--light-blue));
     border-radius: 50%;
-    font-weight: 900;
-    background-image: url("../img/scan.png");
-    background-size: 70% 70%;
-    background-repeat: no-repeat;
-    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .ripple {

@@ -4,7 +4,7 @@ import config from './config.js';
 let token = null;
 
 export const getTracksByAlbumISBN = async ISBN => {
-    const url = `http://134.209.89.240:3000/singleSearch/singleSearch.xml?q=${ISBN}&resultCount=1`;
+    const url = `https://134.209.92.164:3001/singleSearch/singleSearch.xml?q=${ISBN}&resultCount=1`;
 
     const headers = new Headers({
         Authorization: `Basic ${btoa(config.username + ':' + config.password)}`
@@ -28,7 +28,7 @@ const getSpotifyToken = async () => {
     const formData = new URLSearchParams();
     formData.append('grant_type', 'client_credentials');
 
-    const data = await request('http://134.209.89.240:3001/accounts/api/token', {
+    const data = await request('https://134.209.92.164:3002/accounts/api/token', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -67,7 +67,7 @@ const getTracks = async album => {
 };
 
 const getSpotifyAlbum = async (albumTitle, artist) => {
-    const data = await request(`http://134.209.89.240:3001/api/v1/search?q=${encodeURIComponent(albumTitle)}+artist:${encodeURIComponent(artist)}&type=album&limit=1`, {
+    const data = await request(`https://134.209.92.164:3002/api/v1/search?q=${encodeURIComponent(albumTitle)}+artist:${encodeURIComponent(artist)}&type=album&limit=1`, {
         headers: {
             Authorization: 'Bearer ' + token
         },
@@ -86,7 +86,7 @@ const getSpotifyAlbum = async (albumTitle, artist) => {
 };
 
 const getSpotifyTracks = async albumId => {
-    const data = await request(`http://134.209.89.240:3001/api/v1/albums/${albumId}/tracks`, {
+    const data = await request(`https://134.209.92.164:3002/api/v1/albums/${albumId}/tracks`, {
         headers: {
             Authorization: 'Bearer ' + token
         },
