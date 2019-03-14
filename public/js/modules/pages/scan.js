@@ -18,7 +18,7 @@ class Scan extends DOM {
                         if (track && typeof track.getCapabilities === 'function') {
                             torch = !torch;
                             track.applyConstraints({advanced: [{torch}]});
-                            target.classList.toggle('flashlight-on');
+                            target.querySelector('svg').classList.toggle('flashlight-on');
                         }
                     }
                 };

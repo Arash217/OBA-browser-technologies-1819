@@ -13,19 +13,19 @@ class Details extends DOM {
         this.eventListeners = [
             element => {
                 const clickEventHandler = ({target}) => {
-                    if (target.classList.contains('track')) {
+                    if (target.id === 'player-container') {
                         const audio = target.querySelector('audio');
-                        const playerButton = target.querySelector('#player-button');
+                        const playerButton = target.querySelector('button');
 
                         if (audio.duration > 0 && !audio.paused) {
                             audio.pause();
                             audio.currentTime = 0;
-                            playerButton.classList.remove('stop-button');
-                            playerButton.classList.add('play-button');
+                            playerButton.classList.remove('stop');
+                            playerButton.classList.add('play');
                         } else {
                             audio.play();
-                            playerButton.classList.remove('play-button');
-                            playerButton.classList.add('stop-button');
+                            playerButton.classList.remove('play');
+                            playerButton.classList.add('stop');
                         }
                     }
                 };
@@ -38,29 +38,27 @@ class Details extends DOM {
     template() {
         return `
             {{#if this.errorMessage}}
-                <span class="error">
+                <header>
                     {{ this.errorMessage }}
-                </span>
+                </header>
             {{else}}
-            <span class="album-title">
-                {{ this.album.AlbumTitle }}
-            </span>
-            <div id="tracks">
-                {{#each this.tracks}}
-                    <div id="{{this.id}}" class="track">
-                         <div class="album">
-                            <div class="player-container">
-                                <audio class="audio" src="{{this.preview_url}}"></audio>
-                                <img class="album-image" src="{{../this.album.Cover}}" alt="{{../this.album.AlbumTitle}}">
+                <header>
+                    {{ this.album.AlbumTitle }}
+                </header>
+                <div id="tracks">
+                    {{#each this.tracks}}
+                        <article id="{{this.id}}">
+                            <div id="player-container">
+                                <audio src="{{this.preview_url}}"></audio>
+                                <img src="{{../this.album.Cover}}" alt="{{../this.album.AlbumTitle}}">
                                 <div id="player">
-                                    <div id="player-button" class="play-button"></div>
+                                    <button class="play"></button>
                                 </div>
                             </div>
-                            <span>{{this.name}}</span>
-                        </div>
-                    </div>
-                {{/each}}
-            </div>
+                            <p>{{this.name}}</p>
+                        </article>
+                    {{/each}}
+                </div>
             {{/if}}
         `;
     }

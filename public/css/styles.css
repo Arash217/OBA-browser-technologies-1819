@@ -37,7 +37,7 @@ section {
     background-image: linear-gradient(to bottom, rgb(var(--blue-start)), rgb(var(--blue-end)));
 }
 
-.scan-button-container {
+#home-page nav {
     top: 20%;
     position: absolute;
     display: flex;
@@ -46,7 +46,7 @@ section {
     z-index: 1;
 }
 
-.scan-button {
+#home-page nav a {
     width: 5em;
     height: 5em;
     font-size: 2em;
@@ -122,15 +122,15 @@ section {
     opacity: 0.7;
 }
 
-.type-2 .wave {
+.wave-two .wave {
     transform: translateX(-60%);
 }
 
-.type-2 .wave:nth-of-type(2) {
+.wave-two .wave:nth-of-type(2) {
     transform: translateX(40%);
 }
 
-.type-2 .wave path {
+.wave-two .wave path {
     fill: rgb(var(--light-blue));
     opacity: 0.7;
 }
@@ -153,24 +153,41 @@ section {
 #interactive {
     height: 100%;
     width: 100%;
-}
-
-.actions {
-    position: absolute;
-    bottom: 0;
-    padding: 15px;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
-#flashlight {
+#interactive video, #interactive canvas{
+    position: absolute;
+}
+
+#scan-page button {
+    background-color: transparent;
+    position: absolute;
+    width: 4em;
+    height: 4em;
+    border: 0;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    margin-bottom: 15px;
+}
+
+#scan-page button:focus {
+    outline: 0;
+}
+
+#scan-page button svg {
     width: 4em;
     height: 4em;
     border-radius: 50%;
     border: 1px solid rgb(var(--white));
     padding: 5px;
+    pointer-events: none;
 }
 
 .flashlight-off {
@@ -189,13 +206,12 @@ section {
 /* Details page */
 #details-page {
     display: flex;
-    /*background-image: linear-gradient(to bottom, rgb(var(--blue-start)), rgb(var(--blue-end)));*/
     flex-direction: column;
     height: auto;
     padding-bottom: 1em;
 }
 
-.nav-bar {
+#details-page nav {
     display: flex;
     height: 50px;
     width: 100%;
@@ -206,12 +222,20 @@ section {
     margin-bottom: 1em;
 }
 
-.nav-bar a {
+#details-page nav a {
     color: rgb(var(--white));
 }
 
-#details-page-content {
+#details-page header {
+    font-size: 2em;
+    color: rgb(var(--blue-end));
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+}
 
+#details-page section {
+    flex-direction: column;
 }
 
 #tracks {
@@ -221,29 +245,19 @@ section {
     justify-items: center;
     grid-template-columns: 1fr;
     padding-top: 1em;
+    align-self: center;
+    justify-self: center;
 }
 
-.album-title {
-    font-size: 2em;
-    color: rgb(var(--blue-end));
-    text-align: center;
-    width: 100%;
-    display: inline-block;
-}
-
-.track {
-    text-align: center;
-}
-
-.album {
+#details-page section article {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-    pointer-events: none;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 }
 
-.player-container {
+#player-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -252,7 +266,7 @@ section {
     position: relative;
 }
 
-.album span {
+#details-page section article p {
     background-color: rgb(var(--blue-end));
     padding: 0.5em;
     pointer-events: none;
@@ -263,14 +277,14 @@ section {
     z-index: 1;
 }
 
-.album-image {
+#details-page section article img {
     pointer-events: none;
     width: 100%;
     float: left;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.audio {
+#details-page section article audio {
     display: none;
 }
 
@@ -283,78 +297,29 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
+    pointer-events: none;
 
 }
 
-#player-button {
+#player button {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 70% 70%;
     border-radius: 50%;
     border: 1px solid rgb(var(--white));
-    width: 5em;
     height: 5em;
+    width: 5em;
+    background-color: transparent;
 }
 
-.play-button {
+#player button:focus {
+    outline: none;
+}
+
+.play {
     background-image: url("../img/play.svg");
 }
 
-.stop-button {
+.stop {
     background-image: url("../img/stop.svg");
-}
-
-.error {
-    font-size: 2em;
-    color: rgb(var(--blue-end));
-    text-align: center;
-    width: 100%;
-    display: inline-block;
-}
-
-.skeleton-title {
-    width: 90%;
-    max-width: 720px;
-    height: 43px;
-    background-repeat: no-repeat;
-    background-image: linear-gradient(rgb(var(--blue-end)) 57px, white 0);
-    background-size: 25% 43px;
-    background-position: 50% 50%;
-    animation: grow 5s ease-out infinite normal;
-}
-
-.skeleton {
-    width: 90%;
-    max-width: 720px;
-    height: 400px;
-    background-repeat: no-repeat;
-    background-image: linear-gradient(rgb(var(--blue-end)) 57px, white 0),
-    linear-gradient(#E2E2E2 100%, transparent 0);
-
-    background-size: 100% 57px,
-    100% 100%;
-
-    background-position: 0 100%,
-    0 0;
-
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    animation: grow 5s ease-out infinite normal;
-}
-
-@keyframes grow {
-    0% {
-        transform: scale(0.96);
-    }
-    25% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(0.96);
-    }
-    75% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(0.96);
-    }
 }

@@ -10,9 +10,8 @@
 <body>
 <!-- Start of home page -->
 <section id="home-page" class="invisible">
-
-    <div class="scan-button-container">
-        <a href="#scan" class="scan-button">
+    <nav>
+        <a href="#scan">
             <svg viewBox="0 0 1000 1000" fill="#ffffff" width="110" height="110">
                 <path d="M357.7,737.1h47.4v47.4h-47.4V737.1z"/>
                 <path d="M357.7,215.5h47.4v474.2h-47.4V215.5z"/>
@@ -36,8 +35,8 @@
                 <path d="M879.4,104.8v20.5H971v93.3h19v-93.3v-20.5h-19H879.4z"/>
             </svg>
         </a>
-        <span class="ripple"></span>
-    </div>
+        <div class="ripple"></div>
+    </nav>
 
     <div class="waves-container">
         <svg class="wave">
@@ -49,7 +48,7 @@
         </svg>
     </div>
 
-    <div class="waves-container type-2">
+    <div class="waves-container wave-two">
         <svg class="wave">
             <path d="M.005 121C311 121 409.898-.25 811 0c400 0 500 121 789 121v77H0s.005-48 .005-77z"/>
         </svg>
@@ -61,12 +60,12 @@
 </section>
 <!-- End of home page -->
 
-<!-- Start of details page -->
+<!-- Start of scan page -->
 <section id="scan-page" class="invisible">
     <div id="interactive" class="viewport"></div>
 
-    <div class="actions">
-        <svg fill="currentColor" id="flashlight" width="512pt" height="512pt" viewBox="0 0 512 512">
+    <button id="flashlight">
+        <svg fill="currentColor" width="512" height="512" viewBox="0 0 512 512">
             <g transform="translate(0 512) scale(.1 -.1)">
                 <path d="m2522 5100c-56-34-62-63-62-305 0-233 5-259 54-304 36-34 118-40 163-12 65 41 68 52 71 295 4 250-4 292-62 327-42 26-121 25-164-1z"/>
                 <path d="m3673 5073c-14-16-94-127-176-247-140-204-151-223-151-265 0-59 24-94 80-122 71-34 146-13 179 50 8 16 67 105 131 196 63 92 124 181 135 198 23 39 24 84 3 137-23 56-60 80-124 80-43 0-55-4-77-27z"/>
@@ -75,29 +74,18 @@
                 <path d="m1490 3574c0-4 95-178 210-389l210-382v-1366-1366l31-36 31-35h612c671 0 638-3 671 60 13 25 15 202 15 1389v1361l191 346c104 191 199 364 210 386l19 38h-1100c-605 0-1100-3-1100-6zm1180-1226c75-51 75-50 78-339 3-254 2-260-20-300-26-47-68-76-123-84-51-8-121 26-152 74-22 33-23 41-23 293 0 296 3 311 74 353 54 33 120 34 166 3z"/>
             </g>
         </svg>
-
-    </div>
+    </button>
 </section>
-<!-- End of details page -->
+<!-- End of scan page -->
 
 <!-- Start of details page -->
 <section id="details-page" class="invisible">
-    <div class="nav-bar">
+    <nav class="nav-bar">
         <a href="#scan">Terug</a>
-    </div>
+    </nav>
 
     <!-- Details page template will be rendered in this div -->
-    <div id="details-page-content">
-        <div id="tracks">
-            <div class="skeleton-title"></div>
-            <div class="skeleton"></div>
-            <div class="skeleton"></div>
-            <div class="skeleton"></div>
-            <div class="skeleton"></div>
-            <div class="skeleton"></div>
-            <div class="skeleton"></div>
-        </div>
-    </div>
+    <section id="details-page-content"></section>
 </section>
 <!-- End of details page -->
 
