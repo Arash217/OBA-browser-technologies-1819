@@ -72,7 +72,7 @@ Not surprisingly since the button is actually an a tag.
 - Can't play tracks on the details page because the eventlistener is attached to a div and not a button.
 
 #### Solution(s)
-- Homepage worked so I only added semantic html where needed.
+- Homepage already works, so I only added semantic html.
 - Replaced the SVG toggle flashlight button on the scan page with a button. 
 Toggling the flashlight button now also works with a keyboard.
 - On the details page, I removed the eventlistener from the div and added it to the button. 
