@@ -13,19 +13,17 @@ class Details extends DOM {
         this.eventListeners = [
             element => {
                 const clickEventHandler = ({target}) => {
-                    if (target.id === 'player-container') {
-                        const audio = target.querySelector('audio');
-                        const playerButton = target.querySelector('button');
-
+                    if (target.nodeName === 'BUTTON') {
+                        const audio = document.querySelector(`audio[id="${target.id}"]`);
                         if (audio.duration > 0 && !audio.paused) {
                             audio.pause();
                             audio.currentTime = 0;
-                            playerButton.classList.remove('stop');
-                            playerButton.classList.add('play');
+                            target.classList.remove('stop');
+                            target.classList.add('play');
                         } else {
                             audio.play();
-                            playerButton.classList.remove('play');
-                            playerButton.classList.add('stop');
+                            target.classList.remove('play');
+                            target.classList.add('stop');
                         }
                     }
                 };
@@ -47,12 +45,12 @@ class Details extends DOM {
                 </header>
                 <div id="tracks">
                     {{#each this.tracks}}
-                        <article id="{{this.id}}">
+                        <article>
                             <div id="player-container">
-                                <audio src="{{this.preview_url}}"></audio>
+                                <audio id="{{this.id}}" src="{{this.preview_url}}"></audio>
                                 <img src="{{../this.album.Cover}}" alt="{{../this.album.AlbumTitle}}">
                                 <div id="player">
-                                    <button class="play"></button>
+                                    <button id="{{this.id}}" class="play"></button>
                                 </div>
                             </div>
                             <p>{{this.name}}</p>

@@ -48,7 +48,7 @@ No solutions implemented since there weren't any issues.
 ### Bandwidth
 
 #### Context
-The webapp is a SPA and is build by using vanilla JavaScript, JavaScript libraries, CSS and SVG.
+The webapp is a SPA and is built by using vanilla JavaScript, JavaScript libraries, CSS and SVG.
 
 #### Tests
 I used the Chrome developer tools to simulate a slow 3G network, while disabling cache.
@@ -58,7 +58,23 @@ All the required files were totally 222kb.
 #### Solution(s)
 It would have been a good idea to render the app server-side so that there can be optimizations.
 For example, the webapp's JavaScript files and CSS files could be minified and compressed.
+I would also like to add skeleton screens to improve perceived performance.
 
+### Mouse/Trackpad
+
+#### Context
+The webapp is built for smartphones and has been tested for touch events only.
+
+#### Tests
+The 'click to scan' button on the homepage worked with keyboard only, meaning that I could navigate to the next page.
+Not surprisingly since the button is actually an a tag.
+
+
+
+#### Solution(s)
+It would have been a good idea to render the app server-side so that there can be optimizations.
+For example, the webapp's JavaScript files and CSS files could be minified and compressed.
+I would also like to add skeleton screens to improve perceived performance.
 
 ### Cookies
 Didn't use cookies.

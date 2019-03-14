@@ -177,10 +177,6 @@ section {
     margin-bottom: 15px;
 }
 
-#scan-page button:focus {
-    outline: 0;
-}
-
 #scan-page button svg {
     width: 4em;
     height: 4em;
@@ -310,10 +306,7 @@ section {
     height: 5em;
     width: 5em;
     background-color: transparent;
-}
-
-#player button:focus {
-    outline: none;
+    pointer-events: auto;
 }
 
 .play {
