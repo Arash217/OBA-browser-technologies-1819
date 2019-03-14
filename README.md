@@ -26,7 +26,7 @@ it would be nicer to have a fallback that would look similar to Open Sans
 and not the default font of the browser that would cause the website to look different on different systems/browsers.
 
 #### Solution(s)
-Added the Verdana font family as fallback. The sans-serif fallback is still used as the last fallback.
+Added the Verdana font family as fallback since it looks similar to Open Sans. The sans-serif is still used as the last fallback.
 
 ### Cookies
 Didn't use cookies.
