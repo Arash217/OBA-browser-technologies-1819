@@ -23,7 +23,7 @@ The app uses the Open Sans font for all pages.
 By disabling the custom font, the default sans-serif font of the browser will be used. 
 While this is not a big issue since the Open Sans is a sans-serif font, 
 it would be nicer to have a fallback that would look similar to Open Sans 
-and not the default font of the browser that could cause the website to look different on different systems/browsers.
+and not the default font of the browser that would cause the website to look different on different systems/browsers.
 
 #### Solution(s)
 Added the Verdana font family as fallback. The sans-serif fallback is still used as the last fallback.
