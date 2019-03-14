@@ -240,7 +240,7 @@ section {
 
 #tracks {
     display: grid;
-    grid-gap: 1em;
+    grid-gap: 2em;
     align-items: center;
     justify-items: center;
     grid-template-columns: 1fr;
