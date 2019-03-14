@@ -66,15 +66,18 @@ I would also like to add skeleton screens to improve perceived performance.
 The webapp is built for smartphones and has been tested for touch events only.
 
 #### Tests
-The 'click to scan' button on the homepage worked with keyboard only, meaning that I could navigate to the next page.
+- The 'click to scan' button on the homepage worked with keyboard only, meaning that I could navigate to the next page.
 Not surprisingly since the button is actually an a tag.
-
-
+- The toggle flashlight button on the scan page doesn't work for keyboard since it's a SVG.
+- Can't play tracks on the details page because the eventlistener is attached to a div and not a button.
 
 #### Solution(s)
-It would have been a good idea to render the app server-side so that there can be optimizations.
-For example, the webapp's JavaScript files and CSS files could be minified and compressed.
-I would also like to add skeleton screens to improve perceived performance.
+- Homepage worked so I only added semantic html where needed.
+- Replaced the SVG toggle flashlight button on the scan page with a button. 
+Toggling the flashlight button now also works with a keyboard.
+- On the details page, I removed the eventlistener from the div and added it to the button. 
+Tracks can now be started and stopped with a keyboard. 
+I also added semantic tags on the page.
 
 ### Cookies
 Didn't use cookies.
