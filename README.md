@@ -34,7 +34,7 @@ Added the Verdana font family as fallback since it looks similar to Open Sans. T
 The webapp uses white and different shades of turquoise as colors.
 
 #### Tests
-Tested the website for the different types of colorblind:
+Tested the website for the different types of color blindness:
 - Protanopia
 - Deuteranopia
 - Tritanopia
