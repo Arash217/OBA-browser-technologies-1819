@@ -43,7 +43,7 @@ Tested the website for the different types of color blindness:
 There weren't any issues, because there is enough contrast between the colors.
 
 #### Solution(s)
-No solutions implemented since there weren't any issues.
+No solutions implemented, because there weren't any issues.
 
 ### Bandwidth
 
@@ -79,8 +79,21 @@ Toggling the flashlight button now also works with a keyboard.
 Tracks can now be started and stopped with a keyboard. 
 I also added semantic tags on the page.
 
+### JavaScript
+
+#### Context
+The webapp is build on JavaScript since it's a SPA.
+
+#### Tests
+I disabled JavaScript and not a single page of the webapp worked anymore.
+Not so weird since the webapp uses JavaScript libraries for routing and rendering.
+
+#### Solution(s)
+A solution would be to use server side rendering as fallback.
+That way the pages could be sent to the user if he/she disables JavaScript.
+
 ### Cookies
-Didn't use cookies.
+Webapp doesn't use cookies.
 
 ### Localstorage
-Didn't use localstorage.
+Webapp doesn't use localstorage.
