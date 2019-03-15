@@ -115,6 +115,6 @@ While the screen reader did found my buttons and a tags so that the user can nav
 the buttons didn't had any meaning.
 For the a tag on the homepage the screen reader read out the full url to the scan page, for a user using a screen reader the url is hard to understand since it's basically all numbers. This is because the webapp is hosted on a server which doesn't use a domain name.
 The screen reader reffered the flashlight button on the scan page simply as 'button'. This doesn't has any meaning for a user using a screen reader.
-The play/stop buttons on the details page has the same issue.
-I didn't had time to investigate the issues with the screen reader so I add it as a todo for later.
+The play/stop buttons on the details page got the same issue.
+I didn't had enough time to investigate the issues with the screen reader, so I add it as a todo for later.
 
