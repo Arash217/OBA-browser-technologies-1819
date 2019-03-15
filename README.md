@@ -3,37 +3,39 @@
 ## Summary
 Report on the accessibility of the OBA webapp that I made.
 
-### Images
+### Features
 
-#### Context
+#### Images
+
+##### Context
 The webapp uses besides images that are loaded by an API in the details page, only a png image for the 'click to scan' button on the homepage. SVG is used for everything else.
 
-#### Tests
+##### Tests
 By disabling images in my browser, the image of the 'click to scan' button disappeared along with the images on the details page that are requested by the API.
 
-#### Solution(s)
+##### Solution(s)
 The image of the 'click to scan' button converted to a SVG since it should have been a SVG like the rest anyway. The images on the details page had already an alt tag so didn't change anything there.
 
-### Custom Fonts
+#### Custom Fonts
 
-#### Context
+##### Context
 The webapp uses the Open Sans font for all pages.
 
-#### Tests
+##### Tests
 By disabling the custom font, the default sans-serif font of the browser will be used. 
 While this is not a big issue since the Open Sans is a sans-serif font, 
 it would be nicer to have a fallback that would look similar to Open Sans 
 and not the default font of the browser that would cause the website to look different on different systems/browsers.
 
-#### Solution(s)
+##### Solution(s)
 Added the Verdana font family as fallback since it looks similar to Open Sans. The sans-serif is still used as the last fallback.
 
-### Colors
+#### Colors
 
-#### Context
+##### Context
 The webapp uses white and different shades of turquoise as colors.
 
-#### Tests
+##### Tests
 Tested the website for the different types of color blindness:
 - Protanopia
 - Deuteranopia
@@ -42,36 +44,36 @@ Tested the website for the different types of color blindness:
 
 There weren't any issues, because there is enough contrast between the colors.
 
-#### Solution(s)
+##### Solution(s)
 No solutions implemented, because there weren't any issues.
 
-### Bandwidth
+#### Bandwidth
 
-#### Context
+##### Context
 The webapp is a SPA and is built by using vanilla JavaScript, JavaScript libraries, CSS and SVG.
 
-#### Tests
+##### Tests
 I used the Chrome developer tools to simulate a slow 3G network, while disabling cache.
 It took 18.87 seconds for the browser to load all the required files and to render the homepage of the webapp.
 All the required files were totally 222kb.
 
-#### Solution(s)
+##### Solution(s)
 It would have been a good idea to render the app server-side so that there can be optimizations.
 For example, the webapp's JavaScript files and CSS files could be minified and compressed.
 I would also like to add skeleton screens to improve perceived performance.
 
-### Mouse/Trackpad
+#### Mouse/Trackpad
 
-#### Context
+##### Context
 The webapp is built for smartphones and has been tested for touch events only.
 
-#### Tests
+##### Tests
 - The 'click to scan' button on the homepage worked with keyboard only, meaning that I could navigate to the next page.
 Not surprisingly since the button is actually an a tag.
 - The toggle flashlight button on the scan page doesn't work for keyboard since it's a SVG.
 - Can't play tracks on the details page because the eventlistener is attached to a div and not a button.
 
-#### Solution(s)
+##### Solution(s)
 - Homepage already works, so I only added semantic html.
 - Replaced the SVG toggle flashlight button on the scan page with a button. 
 Toggling the flashlight button now also works with a keyboard.
@@ -79,21 +81,30 @@ Toggling the flashlight button now also works with a keyboard.
 Tracks can now be started and stopped with a keyboard. 
 I also added semantic tags on the page.
 
-### JavaScript
+#### JavaScript
 
-#### Context
+##### Context
 The webapp is build on JavaScript since it's a SPA.
 
-#### Tests
+##### Tests
 I disabled JavaScript and not a single page of the webapp worked anymore.
 Not so weird since the webapp uses JavaScript libraries for routing and rendering.
 
-#### Solution(s)
+##### Solution(s)
 A solution would be to use server side rendering as fallback.
 That way the pages could be sent to the user if he/she disables JavaScript.
 
-### Cookies
+#### Cookies
 Webapp doesn't use cookies.
 
-### Localstorage
+#### Localstorage
 Webapp doesn't use localstorage.
+
+### Device lab
+I tested the webapp on different devices. 
+Unfortunately, it worked only on the HTC tablet because it was the only device that supported HTTP2.
+I didn't had enough time to add support for HTTPS so that's a todo for later.
+Though, the app did worked well on the HTC tablet. 
+The home page and the scan page worked perfectly.
+The details page did work functionally, the only thing that didn't work was the SVG of the stop button.
+I didn't had time to look into the problem, so that's a todo for later.
