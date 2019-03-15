@@ -104,7 +104,7 @@ Webapp doesn't use localstorage.
 I tested the webapp on different devices. 
 Unfortunately, it worked only on the HTC tablet because it was the only device that supported HTTP2.
 I didn't had enough time to add support for HTTPS so that's a todo for later.
-Though, the app did worked well on the HTC tablet. 
+Though, the app did work well on the HTC tablet. 
 The home page and the scan page worked perfectly.
-The details page did work functionally, the only thing that didn't work was the SVG of the stop button.
+The only issue was on the details page, where the SVG of the stop button didn't display.
 I didn't had time to look into the problem, so that's a todo for later.
